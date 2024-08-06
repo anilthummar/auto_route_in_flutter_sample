@@ -19,8 +19,23 @@ class ScreenA extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
             onPressed: () {
-              // AutoRouter.of(context).push(const RouteB());
-              context.router.push(const RouteB());
+              print("current_name Screen A : ${context.router.current.path}");
+
+              AutoRouter.of(context).push(RouteB());
+
+              // Navigate to Screen B with arguments
+
+              // Navigate to Screen B with Query Parameters
+
+              // Navigate to Screen B with Using Path Parameters
+              // context.router.push(RouteB(id: '123'));
+
+              //adds a new entry to the pages stack
+              // context.router.push(const RouteB());
+              // or by using paths
+              // context.router.pushNamed('/route-b');
+
+
             },
             child: const Text("Navigate From A to B",style: TextStyle(fontSize: 18,color: Colors.black),)),
       ),

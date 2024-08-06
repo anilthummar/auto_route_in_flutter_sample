@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../routes/app_router.gr.dart';
+import '../../routes/app_router.gr.dart';
 
 @RoutePage()
 class ScreenC extends StatelessWidget {
@@ -16,8 +16,11 @@ class ScreenC extends StatelessWidget {
       body:Center(
         child: ElevatedButton(
             onPressed: () {
+
+              print("current_name Screen C: ${context.router.current.path}");
               // AutoRouter.of(context).push(const RouteA());
-              context.router.push(const RouteA());
+              // context.router.push(const RouteA());
+              context.router.navigate(const RouteA());
             },
             child: const Text("Navigate From C to A",style: TextStyle(fontSize: 18,color: Colors.black),)),
       ),
