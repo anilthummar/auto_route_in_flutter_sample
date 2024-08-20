@@ -1,7 +1,6 @@
-import 'package:auto_route/annotations.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:demo_auto_route_flutter/routes/app_router.gr.dart';
-import 'package:flutter/material.dart';
+
+import '../../../utils/exports.dart';
+
 
 @RoutePage()
 class ScreenA extends StatelessWidget {
@@ -18,10 +17,25 @@ class ScreenA extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               print("current_name Screen A : ${context.router.current.path}");
 
-              AutoRouter.of(context).push(RouteB());
+              // context.router.push(const RouteB());
+
+              // Navigate to DetailPage and await the result
+              final result = await context.router.push(RouteB(),);
+              // var result = await appRouter.push<bool>(RouteB());
+
+
+              // Handle the result
+              if (result != null && result is bool)  {
+                print("Result: $result");
+
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //   SnackBar(content: Text('Result: $result')),
+                // );
+              }
+
 
               // Navigate to Screen B with arguments
 
